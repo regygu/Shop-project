@@ -48,4 +48,11 @@ public class Milk {
         return price;
     }
 
+    public String toString() { return "Volume : " + this.getVolume() + "\n" +
+                                      "Manufacturer : " + this.getManufacturer() + "\n" +
+                                      "Expiration : " + this.getExpiration() + "\n" +
+                                      "Fat content : " + this.getFatContent() + "\n" +
+                                      "Price : " + this.getPrice() + "\n";}
+
 }
+
