@@ -1,4 +1,5 @@
-import java.util.Vector;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Created by ugyan on 2017.02.16..
@@ -8,10 +9,9 @@ public class GroceryShop {
     private String name;
     private String address;
     private String owner;
-    private Vector<Milk> milkCounter;
-    private int flag;
+    private Hashtable<Long, Milk> milkCounter;
 
-    public GroceryShop(String name, String address, String owner, Vector<Milk> milkCounter) {
+    public GroceryShop(String name, String address, String owner, Hashtable milkCounter) {
         this.name = name;
         this.address = address;
         this.owner = owner;
@@ -32,16 +32,17 @@ public class GroceryShop {
 
     public boolean isThereMilk() { return !milkCounter.isEmpty(); }
 
-    public Milk buyMilk(Milk milk) {
-        for (Milk milkElement : milkCounter) {
-            if (milkElement.equals(milk)) {
-                milkCounter.remove(milkElement);
-            return milkElement;
+    public Milk buyMilk(long barCode) {
+        while (milkCounter.entrySet().iterator().hasNext()) {
+            Map.Entry<Long, Milk> entry = milkCounter.entrySet().iterator().next();
+            if (entry.getKey().equals(barCode)) {
+                milkCounter.remove(barCode);
+                return entry.getValue();
             }
         }
     }
 
     public void stockMilk(Milk milk) {
-        milkCounter.add(milk);
+        milkCounter.put(milk.getBarCode(), milk);
     }
 }
