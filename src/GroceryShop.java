@@ -1,4 +1,4 @@
-import static java.util.Arrays.asList;
+import java.util.Vector;
 
 /**
  * Created by ugyan on 2017.02.16..
@@ -8,15 +8,20 @@ public class GroceryShop {
     private String name;
     private String address;
     private String owner;
-    private Milk[] milkCounter;
+    private Vector<Milk> milkCounter;
     private int flag;
 
-    public GroceryShop(String name, String address, String owner, Milk[] milkCounter) {
+    public GroceryShop(String name, String address, String owner, Vector<Milk> milkCounter) {
         this.name = name;
         this.address = address;
         this.owner = owner;
         this.milkCounter = milkCounter;
+    }
 
+    public GroceryShop(String name, String address, String owner) {
+        this.name = name;
+        this.address = address;
+        this.owner = owner;
     }
 
     public String getName() { return name; }
@@ -25,16 +30,18 @@ public class GroceryShop {
 
     public String getOwner() { return owner; }
 
-    public boolean isThereMilk() { return milkCounter.length > 0; }
+    public boolean isThereMilk() { return !milkCounter.isEmpty(); }
 
     public Milk buyMilk(Milk milk) {
-        final int milkCounterLength = milkCounter.length;
-        final int indexOfMilk = asList(milkCounter).indexOf(milk);
-        Milk[] upToDateMilkCounter = new Milk[milkCounterLength - 1];
-        System.arraycopy(milkCounter, 0, upToDateMilkCounter, 0, milkCounterLength);
-        System.arraycopy(milkCounter,  indexOfMilk + 1, upToDateMilkCounter, indexOfMilk, milkCounterLength - indexOfMilk - 1);
-        milkCounter = upToDateMilkCounter;
-        return milk;
+        for (Milk milkElement : milkCounter) {
+            if (milkElement.equals(milk)) {
+                milkCounter.remove(milkElement);
+            return milkElement;
+            }
+        }
     }
 
+    public void stockMilk(Milk milk) {
+        milkCounter.add(milk);
+    }
 }
