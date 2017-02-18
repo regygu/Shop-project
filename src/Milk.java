@@ -5,25 +5,23 @@ import java.util.Date;
  */
 public class Milk {
 
-    private long barCode;
-    private final int LITER = 4;
-    private final int HALFLITER = 2;
-    private final int GLASS = 1;
-    private final double WHOLE = 4.0;
-    private final double SEMISKIMMED = 2.5;
-    private int volume;
-    private String manufacturer;
-    private Date expiration;
-    private double fatContent;
-    private long price;
+    public final int LITER = 4;
+    public final int HALFLITER = 2;
+    public final int GLASS = 1;
+    public final double WHOLE = 4.0;
+    public final double SEMISKIMMED = 2.5;
+    protected long barCode;
+    protected int volume;
+    protected String manufacturer;
+    protected Date expiration;
+    protected double fatContent;
 
-    public Milk(long barCode, int volume, String manufacturer, Date expiration, double fatContent, long price) {
+    public Milk(long barCode, int volume, String manufacturer, Date expiration, double fatContent) {
         this.barCode = barCode;
         this.volume = volume;
         this.manufacturer = manufacturer;
         this.expiration  = expiration;
         this.fatContent = fatContent;
-        this.price = price;
 
     }
 
@@ -51,10 +49,6 @@ public class Milk {
 
     public double getFatContent() {
         return fatContent;
-    }
-
-    public long getPrice() {
-        return price;
     }
 
     public String toString() { return "Barcode : " + this.getBarCode() + "\n" +
