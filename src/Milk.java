@@ -55,8 +55,7 @@ public class Milk {
                                       "Volume : " + this.getVolume() + "\n" +
                                       "Manufacturer : " + this.getManufacturer() + "\n" +
                                       "Expiration : " + this.getExpiration() + "\n" +
-                                      "Fat content : " + this.getFatContent() + "\n" +
-                                      "Price : " + this.getPrice() + "\n";}
+                                      "Fat content : " + this.getFatContent() + "\n"; }
 
 }
 
