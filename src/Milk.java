@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.02.16..
  */
-public class Milk {
+public abstract class Milk {
 
     public final int LITER = 4;
     public final int HALFLITER = 2;
