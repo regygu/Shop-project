@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.02.19..
  */
-public class Cheese extends Food{
+public class Cheese extends Food {
     protected double weight;
     protected double fatContent;
     protected long barCode;

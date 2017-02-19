@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.02.19..
  */
-public class Food {
+public class Food extends Goods {
     protected long barCode;
     protected String manufacturer;
     protected Date expiration;
