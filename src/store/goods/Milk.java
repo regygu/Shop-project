@@ -7,11 +7,11 @@ import java.util.Date;
  */
 public abstract class Milk extends Food {
 
-    public final int LITER = 4;
-    public final int HALFLITER = 2;
-    public final int GLASS = 1;
-    public final double WHOLE = 4.0;
-    public final double SEMISKIMMED = 2.5;
+    public static final int LITER = 4;
+    public static final int HALFLITER = 2;
+    public static final int GLASS = 1;
+    public static final double WHOLE = 4.0;
+    public static final double SEMISKIMMED = 2.5;
     protected long barCode;
     protected int volume;
     protected String manufacturer;
