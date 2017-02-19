@@ -1,11 +1,9 @@
-package milk;
-
 import java.util.Date;
 
 /**
  * Created by ugyan on 2017.02.16..
  */
-public abstract class Milk {
+public abstract class Milk extends Food {
 
     public final int LITER = 4;
     public final int HALFLITER = 2;
@@ -19,10 +17,8 @@ public abstract class Milk {
     protected double fatContent;
 
     public Milk(long barCode, int volume, String manufacturer, Date expiration, double fatContent) {
-        this.barCode = barCode;
+        super(barCode, manufacturer, expiration);
         this.volume = volume;
-        this.manufacturer = manufacturer;
-        this.expiration  = expiration;
         this.fatContent = fatContent;
 
     }

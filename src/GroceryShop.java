@@ -1,5 +1,3 @@
-import milk.Milk;
-
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -42,6 +40,7 @@ public class GroceryShop {
                 return entry.getValue();
             }
         }
+        return null;
     }
 
     public void stockMilk(Milk milk) {

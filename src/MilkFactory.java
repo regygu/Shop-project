@@ -1,5 +1,3 @@
-import milk.*;
-
 import java.util.Date;
 
 /**

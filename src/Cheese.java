@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.02.19..
  */
-public class Cheese {
+public class Cheese extends Food{
     protected double weight;
     protected double fatContent;
     protected long barCode;
@@ -11,11 +11,9 @@ public class Cheese {
     protected Date expiration;
 
     public Cheese(double weight, double fatContent, long barCode, String manufacturer, Date expiration) {
+        super(barCode, manufacturer, expiration);
         this.weight = weight;
         this.fatContent = fatContent;
-        this. barCode = barCode;
-        this.manufacturer = manufacturer;
-        this.expiration = expiration;
     }
 
     public double getWeight() { return weight; }
