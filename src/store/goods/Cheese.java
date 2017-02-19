@@ -1,3 +1,5 @@
+package store.goods;
+
 import java.util.Date;
 
 /**

@@ -1,3 +1,7 @@
+package store.exception;
+
+import store.GroceryShopException;
+
 /**
  * Created by ugyan on 2017.02.19..
  */

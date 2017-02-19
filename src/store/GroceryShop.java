@@ -1,3 +1,9 @@
+package store;
+
+import store.goods.Cheese;
+import store.goods.Food;
+import store.goods.Milk;
+
 import java.util.Hashtable;
 import java.util.Random;
 

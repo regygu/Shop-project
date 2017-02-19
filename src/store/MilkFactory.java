@@ -1,3 +1,9 @@
+package store;
+
+import store.goods.Milk;
+import store.goods.milk.htstMilk;
+import store.goods.milk.uhtMilk;
+
 import java.util.Date;
 
 /**
