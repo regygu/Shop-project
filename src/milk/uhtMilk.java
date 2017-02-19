@@ -1,3 +1,5 @@
+package milk;
+
 import java.util.Date;
 
 /**
