@@ -11,8 +11,7 @@ public class Soap extends Goods {
     protected char detergentValue;
 
     public Soap(long barCode, String manufacturer, char detergentValue) {
-        this.barCode = barCode;
-        this.manufacturer = manufacturer;
+        super(barCode, manufacturer);
         this.detergentValue = detergentValue;
 
     }

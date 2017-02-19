@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.02.19..
  */
-public abstract class StoreFactory {
+public abstract class GroceryShopFactory {
 
     public Milk newUhtMilk(Long barCode, int volume, String manufacturer, Date expiration, double fatContent) {
         Milk newuhtMilk = new uhtMilk(barCode, volume, manufacturer, expiration, fatContent);

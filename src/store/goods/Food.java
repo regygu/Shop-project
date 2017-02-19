@@ -13,8 +13,7 @@ public class Food extends Goods {
     protected Date expiration;
 
     public Food(long barCode, String manufacturer, Date expiration) {
-        this.barCode = barCode;
-        this.manufacturer = manufacturer;
+        super(barCode, manufacturer);
         this.expiration = expiration;
     }
 
