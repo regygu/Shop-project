@@ -1,5 +1,5 @@
 import java.util.Hashtable;
-import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by ugyan on 2017.02.16..
@@ -9,13 +9,13 @@ public class GroceryShop {
     private String name;
     private String address;
     private String owner;
-    private Hashtable<Long, Milk> milkCounter;
+    private Hashtable<Long, groceryShopEntry> foodCounter;
 
-    public GroceryShop(String name, String address, String owner, Hashtable milkCounter) {
+    public GroceryShop(String name, String address, String owner, Hashtable foodCounter) {
         this.name = name;
         this.address = address;
         this.owner = owner;
-        this.milkCounter = milkCounter;
+        this.foodCounter = foodCounter;
     }
 
     public GroceryShop(String name, String address, String owner) {
@@ -30,59 +30,58 @@ public class GroceryShop {
 
     public String getOwner() { return owner; }
 
-    public boolean isThereMilk() { return !milkCounter.isEmpty(); }
+    public boolean isThereSpecificItem(Class c) { return foodCounter.contains(c); }
 
-    public Milk buyMilk(long barCode) {
-        while (milkCounter.entrySet().iterator().hasNext()) {
-            Map.Entry<Long, Milk> entry = milkCounter.entrySet().iterator().next();
-            if (entry.getKey().equals(barCode)) {
-                milkCounter.remove(barCode);
-                return entry.getValue();
-            }
-        }
-        return null;
+    public boolean isThereMilk() { return isThereSpecificItem(Milk.class); }
+
+    public boolean isThereCheese() { return isThereSpecificItem(Cheese.class); }
+
+    public void stockFood(long barCode, long quantity) { foodCounter.get(barCode).addQuantity(quantity); }
+
+    public void stockNewFood(Food food, long quantity, long price) { foodCounter.put(generateBarCode(), new groceryShopEntry(food, quantity, price)); }
+
+    public void deleteFood(long barCode) { foodCounter.remove(barCode); }
+
+    public void buyFood(long barCode, long quantity) { foodCounter.get(barCode).subtractQuantity(quantity);}
+
+    public long generateBarCode() {
+        Random randomGen = new Random();
+        return randomGen.nextLong();
     }
-
-    public void stockMilk(Milk milk) {
-        milkCounter.put(milk.getBarCode(), milk);
-    }
-
 
     class groceryShopEntry {
 
-        private Milk milk;
-        private int quantity;
-        private int price;
+        private Food food;
+        private long quantity;
+        private long price;
 
-        public groceryShopEntry(Milk milk, int quantity, int price) {
-            this.milk = milk;
+        public groceryShopEntry(Food food, long quantity, long price) {
+            this.food = food;
             this.quantity = quantity;
             this.price = price;
         }
 
-        public Milk getMilk() { return milk; }
+        public Food getFood() { return food; }
 
-        public void setMilk(Milk milk) {
-            this.milk = milk;
+        public void setFood(Food food) {
+            this.food = food;
         }
 
-        public int getQuantity() { return quantity; }
+        public long getQuantity() { return quantity; }
 
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
+        public void setQuantity(long quantity) { this.quantity = quantity; }
 
-        public void addQuantity(int quantity) {
+        public void addQuantity(long quantity) {
             this.quantity += quantity;
         }
 
-        public void subtractQuantity(int quantity) {
+        public void subtractQuantity(long quantity) {
             this.quantity -= quantity;
         }
 
-        public int getPrice() { return price; }
+        public long getPrice() { return price; }
 
-        public void setPrice(int price) {
+        public void setPrice(long price) {
             this.price = price;
         }
     }
